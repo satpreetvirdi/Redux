@@ -1,7 +1,9 @@
 import React from 'react'; 
 import  { Navbar,Button, Container, Nav, NavDropdown } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
 
 const Navbarlist = () => {
+  const amount = useSelector(state => state.amount)
   return <>
     <Navbar bg="light" expand="lg">
   <Container fluid>
@@ -16,7 +18,7 @@ const Navbarlist = () => {
         <Nav.Link href="#action1">Home</Nav.Link>
        
         <NavDropdown title="Link" id="navbarScrollingDropdown">
-          <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+          <NavDropdown.Item href="#action3">Action</NavDropdown.Item> 
           <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
           <NavDropdown.Divider />
           <NavDropdown.Item href="#action5">
@@ -25,7 +27,11 @@ const Navbarlist = () => {
         </NavDropdown>
         
       </Nav>
-      <Button className='btn-primary' disabled={true} > Your balance: 0 INR</Button>
+
+
+
+
+      <Button className='btn-primary' disabled={true} > Your balance:{amount}</Button>
     </Navbar.Collapse>
   </Container>
 </Navbar>
